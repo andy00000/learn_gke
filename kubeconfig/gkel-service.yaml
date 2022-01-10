@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gkel-service
+  labels:
+    env: dev
+spec:
+  selector:
+    project: gkel-pro
+  ports:
+    - name: listener
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer

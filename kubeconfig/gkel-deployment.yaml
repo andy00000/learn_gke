@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: learn-deployment-gkel
+  labels:
+    app: gkel-app
+    env: dev
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      project: gkel-pro
+  template:
+    metadata:
+      labels:
+        project: gkel-pro
+    spec:
+      containers:
+        - name: nginx
+          image: andy00000/gkel:latest
+          ports:
+            - containerPort: 8080
